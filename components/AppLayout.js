@@ -1,24 +1,31 @@
 import React from "react";
 import { Container } from "components/Container";
-
+import { DATAPRED_LOGO as datapredLogo } from "helpers/exportImages";
 const AppLayout = ({ children }) => {
   return (
-    <Container.Flex
-      className={{
-        flex: "flex-col justify-center items-center",
-        dimension: "max-w-none px-10 lg:max-w-7xl mx-auto h-screen",
-        typography: "font-raleway text-xl",
-      }}
-    >
-      <Container
+    <Container className="bg-gray-800 text-white">
+      <Container.Flex
         className={{
-          flex: "flex gap-x-5 justify-center",
-          dimension: "w-full",
+          flex: "flex-col justify-center items-center ",
+          dimension: "max-w-none px-10 lg:max-w-7xl mx-auto h-screen",
+          typography: "font-raleway text-xl",
         }}
       >
-        {children}
-      </Container>
-    </Container.Flex>
+        <Container.Image
+          src={datapredLogo}
+          alt="logo"
+          className="h-32 w-auto mb-10"
+        />
+        <Container
+          className={{
+            flex: "flex gap-x-5 justify-center",
+            dimension: "w-full",
+          }}
+        >
+          {children}
+        </Container>
+      </Container.Flex>
+    </Container>
   );
 };
 
