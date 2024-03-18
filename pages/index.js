@@ -1,10 +1,14 @@
+import AppLayout from "components/AppLayout";
+import Calendar from "../components/Calendar";
+// import { generateDatesForYears } from "helpers/manipulateText";
+
 const Index = () => {
+  // const datesArray = generateDatesForYears(2023, 2025);
+
   return (
-    <div>
-      <div>HeroSection</div>
-      <div>BlogPost</div>
-      <div>Experience + CV</div>
-    </div>
+    <AppLayout>
+      <Calendar />
+    </AppLayout>
   );
 };
 
