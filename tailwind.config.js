@@ -6,7 +6,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      montserrat: ["Montserrat", "sans-serif"],
+      raleway: ["Raleway", "sans-serif"],
     },
     extend: {
       screens: {
