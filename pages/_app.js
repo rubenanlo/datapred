@@ -5,6 +5,7 @@ import "styles/globals.css";
 import { useEffect } from "react";
 import { Router } from "next/router";
 import * as gtag from "helpers/gtag";
+import RootProviders from "providers/rootProviders";
 
 const App = ({ Component, pageProps }) => {
   // Track pages with google analytics
@@ -30,7 +31,9 @@ const App = ({ Component, pageProps }) => {
         openGraph={{ url: URL, images: [{ url: META_IMAGE }] }}
         twitter={{ cardType: "summary_large_image" }}
       />
-      <Component {...pageProps} />
+      <RootProviders>
+        <Component {...pageProps} />
+      </RootProviders>
     </>
   );
 };

@@ -29,8 +29,8 @@ When creating the application, please note that I relied on the endpoints withou
 | jan 14          | 68                         | 136                                          | true                         | yes                                                            |          |
 | jan 15          | 70                         | 147                                          | true                         | yes                                                            |          |
 
-(1) When running the query in the backend, the complete property shows up as false. However, when running the endpoint /flows/1/runs, and you look for january 13th, the complete property shows up as true.
-(2) The backend threw a 404 error when trying to fetch the trends. Thus I set a message saying that 'no trends where found for this output id'.
-(3) Even though the backend threw a 404 error when trying to fetch the outputs, I still render a message saying 'no complete run for this date', since the complete property for this date was false.
+- (1) When running the query in the backend, the complete property shows up as false. However, when running the endpoint /flows/1/runs, and you look for january 13th, the complete property shows up as true.
+- (2) The backend threw a 404 error when trying to fetch the trends. Thus I set a message saying that 'no trends where found for this output id'.
+- (3) Even though the backend threw a 404 error when trying to fetch the outputs, I still render a message saying 'no complete run for this date', since the complete property for this date was false.
 
 You may run into differences when testing this application due to the edge cases I found above.
