@@ -1,6 +1,5 @@
 import AppLayout from "components/AppLayout";
-import Dashboard from "../components/Dashboard";
-// import { generateDatesForYears } from "helpers/manipulateText";
+import Dashboard from "components/Dashboard";
 
 const Index = () => {
   return (

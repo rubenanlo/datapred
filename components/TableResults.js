@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
 
+//TODO: Refactor this component to use a custom component. Goal: to avoid repitition of the same code in the component.
 const TableResults = ({ data }) => (
   <table className="mt-32 w-[25vw] font-extralight text-gray-300 mx-auto">
     <colgroup>

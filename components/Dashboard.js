@@ -1,50 +1,40 @@
-import TableResults from "components/TableResults";
+import dayjs from "dayjs";
+import Output from "components/Output";
 import Calendar from "components/Calendar";
 import { TextLayout } from "components/TextLayout";
 import { Container } from "components/Container";
-import { useEffect, useState } from "react";
-import { fetchData } from "../helpers/apiCalls";
-import dayjs from "dayjs";
+import { useDataStore } from "providers/dataStore";
+import { observer } from "mobx-react-lite";
+
+const SectionScheleton = ({ Component, title }) => (
+  <Container.Section className="mt-12 md:mt-0 md:pl-14 h-full">
+    <TextLayout.Title as="h3" title={title} />
+    <Component />
+  </Container.Section>
+);
 
 const Dashboard = () => {
-  const [selectedDate, setSelectedDate] = useState("2021-01-15T00:00:00Z");
-  const [data, setData] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [message, setMessage] = useState(null);
-
-  useEffect(
-    () => async () =>
-      await fetchData(selectedDate, setMessage, setData, setIsLoading),
-    [selectedDate]
-  );
+  const { selectedDate } = useDataStore();
 
   return (
-    (isLoading && <TextLayout.Paragraph text="Loading ..." />) || (
-      <Container className="md:grid md:grid-cols-2 md:divide-x md:divide-gray-200 items-center">
-        <Container.Section className="mt-12 md:mt-0 md:pl-14 h-full">
-          <TextLayout.Title
-            as="h3"
-            title="Select a date (limited to January 2021 for now)"
-          />
-          <Calendar setSelectedDate={setSelectedDate} />
-        </Container.Section>
-
-        <Container.Section className="mt-12 md:mt-0 md:pl-14 h-full">
-          <TextLayout.Title
-            as="h3"
-            title={`Results for production date ${dayjs(selectedDate).format(
-              "MMMM D, YYYY"
-            )}`}
-          />
-          {message ? (
-            <TextLayout.Paragraph paragraph={message} className="text-white" />
-          ) : (
-            <TableResults data={data} />
-          )}
-        </Container.Section>
-      </Container>
-    )
+    <Container
+      className={{
+        position: "md:grid md:grid-cols-2 items-center",
+        border: " md:divide-x md:divide-gray-200",
+      }}
+    >
+      <SectionScheleton
+        title="Select a date (limited to January 2021 for now)"
+        Component={Calendar}
+      />
+      <SectionScheleton
+        title={`Results for production date ${dayjs(selectedDate).format(
+          "MMMM D, YYYY"
+        )}`}
+        Component={Output}
+      />
+    </Container>
   );
 };
 
-export default Dashboard;
+export default observer(Dashboard);

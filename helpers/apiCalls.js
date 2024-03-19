@@ -91,6 +91,7 @@ export const fetchData = async (
   setData,
   setIsLoading
 ) => {
+  setMessage(null);
   try {
     setIsLoading(true);
     const runs = await fetchRuns(selectedDate, setMessage, setIsLoading);
