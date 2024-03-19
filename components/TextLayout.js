@@ -11,26 +11,19 @@ export const TextLayout = ({ className, children }) => {
   );
 };
 
-TextLayout.Title = function TextLayoutTitle({
-  as,
-  title,
-  AdditionalComponent,
-  className,
-  props,
-}) {
+TextLayout.Title = function TextLayoutTitle({ as, title, className, props }) {
   const Component = as ?? "h1";
   const classNameProp = turnObjectIntoString(className);
 
   const variants = {
     h1: "text-4xl font-bold sm:text-5xl text-zinc-900 dark:text-zinc-100",
     h2: "text-2xl sm:text-3xl text-zinc-900 dark:text-zinc-100",
-    h3: "text-xl sm:text-2xl text-zinc-900 dark:text-zinc-100",
+    h3: "text-xl sm:text-2xl font-semibold text-zinc-900 dark:text-zinc-100",
     h4: "text-sm font-semibold text-zinc-900 dark:text-zinc-100",
   };
 
   return (
     <Component className={clsx(classNameProp, variants[as])} {...props}>
-      {AdditionalComponent}
       {title}
     </Component>
   );

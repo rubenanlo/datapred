@@ -6,7 +6,7 @@ const AppLayout = ({ children }) => {
     <Container className="bg-gray-800 text-white">
       <Container.Flex
         className={{
-          flex: "flex-col justify-center items-center ",
+          flex: "flex-col justify-center items-center",
           dimension: "max-w-none px-10 lg:max-w-7xl mx-auto h-screen",
           typography: "font-raleway text-xl",
         }}
@@ -19,7 +19,7 @@ const AppLayout = ({ children }) => {
         <Container
           className={{
             flex: "flex gap-x-5 justify-center",
-            dimension: "w-full",
+            dimension: "w-full h-2/4",
           }}
         >
           {children}
