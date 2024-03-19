@@ -9,6 +9,8 @@ Install all dependencies through the command `npm i` or `npm install` and run th
 For deployment, please add the following environment variables:
 `NEXT_PUBLIC_URL='https://test-backend.i.datapred.com/without-auth/flows/1'`
 
+## Additional comments to bear in mind when testing this application:
+
 When creating the application, please note that I relied on the endpoints without authentication. While working on it, I noticed the following:
 
 - The data is limited to January 2021, so I only created the front end logic for that month. Further steps will be to create a dynamic calendar that allows the user to change the month and year as well.
