@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import { turnObjectIntoString } from "helpers/manipulateText";
-import { motion } from "framer-motion";
 
 export const TextLayout = ({ className, children }) => {
   const classNameProp = turnObjectIntoString(className);
@@ -29,25 +28,6 @@ TextLayout.Title = function TextLayoutTitle({ as, title, className, props }) {
   );
 };
 
-TextLayout.Subtitle = function TextLayoutSubtitle({
-  as,
-  subtitle,
-  className,
-  ...props
-}) {
-  const Component = as ?? "h2";
-  const classNameProp = turnObjectIntoString(className);
-
-  return (
-    <Component
-      className={clsx(classNameProp, "text-2xl leading-8 ")}
-      {...props}
-    >
-      {subtitle}
-    </Component>
-  );
-};
-
 TextLayout.Paragraph = function TextLayoutParagraph({
   paragraph,
   children,
@@ -63,40 +43,5 @@ TextLayout.Paragraph = function TextLayoutParagraph({
     >
       {paragraph || children}
     </p>
-  );
-};
-
-TextLayout.Tag = function TextLayoutTag({ tag, className }) {
-  const classNameProp = turnObjectIntoString(className);
-  return (
-    <div className="bg-zinc-700 dark:bg-gray-200 rounded-full h-fit w-fit px-3">
-      <p
-        className={clsx(
-          classNameProp,
-          " text-gray-300 dark:text-gray-400 text-xs"
-        )}
-      >
-        #{tag}
-      </p>
-    </div>
-  );
-};
-
-TextLayout.Number = function TextLayoutParagraph({
-  number,
-  children,
-  className,
-  ...props
-}) {
-  const classNameProp = turnObjectIntoString(className);
-
-  return (
-    <motion.p
-      {...props.animations}
-      className={clsx(classNameProp, "text-zinc-600 dark:text-zinc-400")}
-      {...props}
-    >
-      {number || children}
-    </motion.p>
   );
 };

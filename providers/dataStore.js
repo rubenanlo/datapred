@@ -6,11 +6,15 @@ const dataStoreContext = createContext(null);
 export const DataStoreProvider = ({ children }) => {
   const dataState = useLocalObservable(() => ({
     // --- OBSERVABLES ---
-    selectedDate: "2021-01-15T00:00:00Z",
+    selectedDate: "2021-01-4T00:00:00Z",
+    data: null,
 
     // --- ACTIONS:SETTERS ---
     setSelectedDate(value) {
       this.selectedDate = value;
+    },
+    setData(value) {
+      this.data = value;
     },
   }));
 
