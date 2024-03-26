@@ -19,7 +19,6 @@ const AppLayout = ({ children }) => {
         <Container
           className={{
             flex: "flex gap-x-5 justify-center",
-            dimension: "w-full h-2/4",
           }}
         >
           {children}
